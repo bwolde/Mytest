@@ -49,4 +49,7 @@
 18. Click on “Publish”. A new browser will be opened after completing the deployment.  
 ![](https://github.com/alinapopa/Images/blob/master/HealthClinicWiki/Deployment/image18.png)
 
-19. Now that the entire backend was deployed, the URL's of the services created must be used in the client apps. In file [src\MyHealth.Client.Core\AppSettings.cs] (https://github.com/Microsoft/HealthClinic.biz/blob/master/src/MyHealth.Client.Core/AppSettings.cs), set "ServerlUrl" to the website URL, and "MobileAPIUrl" to the mobile app URL.
+19. Now that the entire backend was deployed, the URL's of the services created must be used in the client apps:  
+In file [src\MyHealth.Client.Core\AppSettings.cs] (https://github.com/Microsoft/HealthClinic.biz/blob/master/src/MyHealth.Client.Core/AppSettings.cs), set "ServerlUrl" to the website URL, and "MobileAPIUrl" to the mobile app URL.  
+
+  In the Cordova app, set the Azure API_URL in [src\MyHealth.Client.Cordova\content\app\modules\shared\services\configService.ts](https://github.com/Microsoft/HealthClinic.biz/blob/master/src/MyHealth.Client.Cordova/content/app/modules/shared/services/configService.ts) to the value of the mobile service URL.
