@@ -1,6 +1,8 @@
 **Integration with HockeyApp**
 
-The Xamarin.iOS application in the HealthClinic.biz sample uses the [HockeyApp SDK](http://hockeyapp.net/releases/) to report crashes and feedback. In file [src\MyHealth.Client.iOS\AppDelegate.cs](https://github.com/Microsoft/HealthClinic.biz/blob/master/src/MyHealth.Client.iOS/AppDelegate.cs), check the method FinishedLaunching() to view the code that HockeyApp needs in the application to report crashes. Here is the place where it´s necessary to set the App ID of the application created in HockeyApp.  
+The Xamarin.iOS application in the HealthClinic.biz sample uses the [HockeyApp SDK](http://hockeyapp.net/releases/) to report crashes and feedback. 
+
+In file [src\MyHealth.Client.iOS\AppDelegate.cs](https://github.com/Microsoft/HealthClinic.biz/blob/master/src/MyHealth.Client.iOS/AppDelegate.cs), check the method FinishedLaunching() to view the code that HockeyApp needs in the application to report crashes. Here is the place where it´s necessary to set the App ID of the application created in HockeyApp.  
 
 To use this application with HockeyApp:  
 * Create a HockeyApp account at http://hockeyapp.net, check the box "I'm a developer". 
