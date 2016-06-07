@@ -14,21 +14,21 @@ Code, and multiple other tools, SDKs, and extensions.
 You will learn how to perform the following procedures based on the
 [HealthClinic.biz demo](http://healthclinic.biz/) available on GitHub.
 
--   Create and deploy an ASP.NET web app in Azure App Service
+-   [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)
 
--   Create and deploy a Mobile App in Azure App Service
+-   [Create and deploy a Mobile App in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service)
 
--   Deploy and manage Azure resources
+-   [Deploy and manage Azure resources](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources)
 
--   Diagnose your Azure application
+-   [Diagnose your Azure application](https://github.com/Microsoft/HealthClinic.biz/wiki/Diagnose-your-Azure-application)
 
--   Integrate with DevOps / ALM lifecycle
+-   [Integrate with DevOps / ALM lifecycle](https://github.com/Microsoft/HealthClinic.biz/wiki/Integrate-with-DevOps---ALM-lifecycle)
 
--   Work with Azure Storage
+-   [Work with Azure Storage](https://github.com/Microsoft/HealthClinic.biz/wiki/Work-with-Azure-Storage)
 
--   Build Cloud apps with Visual Studio Code
+-   [Build Cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code)
 
--   Work with Docker Tools for Visual Studio
+-   [Work with Docker Tools for Visual Studio](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker)
 
 For more information on Azure Developer Tools, please visit
 <http://azure.com/tools>
