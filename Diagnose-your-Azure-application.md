@@ -12,8 +12,7 @@ to diagnose cloud projects in Visual Studio 2015.
 
 The following illustration shows Application Insights working:
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png){width="5.020833333333333in"
-height="3.3229166666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png) 
 
 You’ll learn the following procedures:
 
@@ -93,15 +92,15 @@ In the Azure portal, go to the **Application Insights** option and add a
 new item by setting the necessary parameters. It’s important to select
 the type of target application.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image2.png){width="4.7in" height="6.0in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image2.png)
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image3.png){width="6.5in" height="5.0in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image3.png)
 
 After the service is created, open the resource from the Azure portal
 and get the **Instrumentation Key**. You must save this key to use in
 the next step.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image4.png){width="6.5in" height="5.5in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image4.png)
 
 Add Application Insights to a Universal Windows project
 =======================================================
@@ -131,7 +130,7 @@ packages manager and install the references:
 
 -   **Microsoft.ApplicationInsights.WindowsApps**
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image5.png){width="6.5in" height="3.3in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image5.png)
 
 You must tell the application to use the platform. To do this, it is
 sufficient to indicate the App.xaml.cs class within the class
@@ -139,7 +138,7 @@ constructor from Public App() {.
 
 Run the following code:
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image6.png){width="6.5in" height="3.0in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image6.png)
 
 In the root of the project, create a new file called
 **ApplicationInsights.config** by using the following code:
@@ -148,7 +147,7 @@ Replace *YOUR\_INSTRUMENTATION\_KEY* with the Instrumentation Key that
 you copied in the previous step. You must specify the properties of this
 file, which are the content type and what is to be copied, if necessary.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image7.png){width="4.9in" height="4.8in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image7.png)
 
 At this point, you have configured Application Insights on your
 Universal Windows application.
@@ -161,9 +160,7 @@ capacity](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 After you run the application, test it, and use it, you can see how
 different results are recorded in the Azure portal:
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png){width="5.020833333333333in"
-height="3.3229166666666665in"}
-
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png)
 You can download the complete code from the following link:
 [HealthDemo.UniversalWindows](https://github.com/Microsoft/HealthClinic.biz/blob/master/05_Demos_NativeApps.sln).
 
@@ -197,23 +194,20 @@ recommend using the NuGet package.
 2.  Click **Options** to view the list of available NuGet
     package sources.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image8.png){width="6.489583333333333in"
-height="3.7395833333333335in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image8.png)
 
 1.  Add the local repository of NuGet packages where you extracted the
     Application Insights SDK for Xamarin:
     **ApplicationInsightsXamarin/NuGet**.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image9.png){width="6.489583333333333in"
-height="4.177083333333333in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image9.png)
 
 1.  Indicate that you want to get packages from the local repository
     that you just added. Make sure that you have selected **Include
     prerelease**. Finally, select and add the package **Application
     Insights SDK for Xamarin.Forms**.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image10.png){width="6.489583333333333in"
-height="3.7395833333333335in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image10.png)
 
 1.  Repeat this process in each of the projects of the different
     platforms where you want to add **Application Insights for
@@ -261,8 +255,7 @@ After you’ve done this, Application Insights will be installed in the
 project. The entire project is available from the following link:
 [HealthDemo.Xamarin](https://github.com/Microsoft/HealthClinic.biz/blob/master/04_Demos_NativeXamarinApps.sln)
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png){width="5.020833333333333in"
-height="3.3229166666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png)
 
 Add Application Insights to a Cordova project
 =============================================
@@ -287,8 +280,7 @@ this project can be used as a base project. It’s available in
 While you can add a Connected Service to a Cordova application,
 Application Insights is not currently supported as a service.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image11.png){width="6.489583333333333in"
-height="4.427083333333333in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image11.png)
 
 However, you can install Application Insights by using a plug-in.
 
@@ -297,15 +289,13 @@ However, you can install Application Insights by using a plug-in.
 2.  Add the following URL as a Git repository:
     <https://github.com/MSOpenTech/cordova-plugin-ms-appinsights>.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image12.png){width="6.489583333333333in"
-height="3.7395833333333335in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image12.png)
 
 1.  A new Application Insights window appears with a field to enter the
     **INSTRUMENTATION\_KEY** that you generated in previous steps
     in Azure. Enter the key, and click **Add**.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image13.png){width="6.489583333333333in"
-height="3.3541666666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image13.png)
 
 After you’ve finished this, Application Insights will be installed on a
 Cordova project. You can test the application and see the statistics
@@ -313,8 +303,7 @@ that are collected in the Azure portal. Note that Ripple might not be
 able to collect these metrics and might generate errors when you test
 the application.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png){width="5.020833333333333in"
-height="3.3229166666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png)
 
 The complete code is available from the following link:
 [HealthDemo.Cordova](https://github.com/Microsoft/HealthClinic.biz/blob/master/03_Demos_Cordova.sln)
@@ -330,27 +319,23 @@ You can also analyze this data from Visual Studio. To do this, click the
 **Application Insights** button that is available on the menu bar. This
 displays a window with the Application Insights loading screen.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image14.png){width="6.489583333333333in"
-height="3.3541666666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image14.png)
 
 After Application Insights starts, Application Insights information
 about the latest project is displayed. To change the project or Azure
 subscription, select the project or existing subscription in the window.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image15.png){width="6.489583333333333in"
-height="3.3541666666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image15.png)
 
 From this window, you can view information about the project that is
 saved in Application Insights.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image16.png){width="6.489583333333333in"
-height="3.3541666666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image16.png)
 
 You can view detailed information, browse different dates, or filter
 different types of saved events from this window.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image17.png){width="6.489583333333333in"
-height="3.3541666666666665in"}
+![](https://whitepapershealth.blob.core.windows.net/diagnose/image17.png)
 
 Other suggested topics to explore
 =================================
@@ -373,4 +358,5 @@ Other suggested topics to explore
 
 -   [Azure Developer Tools](http://azure.com/tools) for more information
     about the tools and for the recently released installers
+
 
