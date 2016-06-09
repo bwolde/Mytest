@@ -1,5 +1,5 @@
 # Azure Developer Tools Quickstarts
-![azuretools](https://i3-vso.sec.s-msft.com/dynimg/IC838704.png)
+![azuretools](https://whitepapershealth.blob.core.windows.net/generalart/Azure-Quickstart-banner.png)
 
 Access the cloud and speed your application development by using a broad
 set of cloud-first development tools that make it easier to configure,
