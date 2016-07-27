@@ -3,41 +3,14 @@
 Overview
 ========
 
-This tutorial shows you how to diagnose performance issues in a web or mobile application in Microsoft
+This article explains how to diagnose performance issues in a web or mobile application in Microsoft
 Azure by using Visual Studio Application Insights, HockeyApp and the diagnostic
-tool in Visual Studio 2015. After completing the tutorial, you will have
-implemented monitoring in each of the existing solutions from
-the Microsoft Connect(); //2015 developer event, and you will know how
-to diagnose cloud projects in Visual Studio 2015.
-
-The following illustration shows Application Insights working on a web app:
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png) 
-
-You’ll learn the following procedures:
-
--   How to prepare your machine for Azure development by installing the
-    [Azure SDK for .NET](https://azure.com/tools)
-
--   How to set up Visual Studio for the use of Application Insights and
-    for debugging applications in the cloud
-
--   How to add Application Insights to a Universal Windows project
-
--   How to add Application Insights to a Xamarin project
-
--   How to add Application Insights to a Cordova project
-
--   How to diagnose an application in Visual Studio
-
--   How to use the [Azure
-    portal](https://azure.microsoft.com/overview/preview-portal/) to
-    monitor and manage your mobile app
+tools in Visual Studio 2015. 
 
 Sign up for Microsoft Azure
 ===========================
 
-You need an Azure account to complete this tutorial. You can:
+You need an Azure account to use Application Insights. You can:
 
 -   [Open an Azure account for
     free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -127,11 +100,13 @@ This does two things:
 
 ### View app telemetry in Application Insights
 
-Make some use of the app, so as to generate some telemetry.
+1. Make some use of the app, so as to generate some telemetry.
 
-In the [Azure portal](https://portal.azure.com/), open the Application Insights resource of your web app.
+2. In the [Azure portal](https://portal.azure.com/), open the Application Insights resource of your web app.
 
-Click through any of the charts that shows data, to get more detail.
+    ![example Application Insights display](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png) 
+
+3. Click through any of the charts that shows data, to get more detail.
 
 Here are some more things you can do to analyze your data:
 
