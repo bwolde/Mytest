@@ -1,16 +1,16 @@
-# Diagnose your Azure application
+# Diagnose your Azure mobile application
 
 Overview
 ========
 
-This tutorial shows you how to diagnose an application in Microsoft
-Azure by using Visual Studio Application Insights and the diagnostic
+This tutorial shows you how to diagnose performance issues in a web or mobile application in Microsoft
+Azure by using Visual Studio Application Insights, HockeyApp and the diagnostic
 tool in Visual Studio 2015. After completing the tutorial, you will have
-implemented Application Insights in each of the existing solutions from
+implemented monitoring in each of the existing solutions from
 the Microsoft Connect(); //2015 developer event, and you will know how
 to diagnose cloud projects in Visual Studio 2015.
 
-The following illustration shows Application Insights working:
+The following illustration shows Application Insights working on a web app:
 
 ![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png) 
 
@@ -77,11 +77,20 @@ If you don't have Visual Studio installed, use the link for Visual
 Studio 2015, and Visual Studio will be installed along with the SDK for
 Universal Windows applications.
 
-Alternatively, and depending on the type of target project that will
-implement Application Insights, you need to install the [Xamarin
+Alternatively, and depending on the type of target project that you want to monitor,
+install the [Xamarin
 platform](https://xamarin.com/download) and also those platforms which
 are part of the project, or [Visual Studio Tools for Apache
 Cordova](https://www.visualstudio.com/en-us/features/cordova-vs.aspx).
+
+HockeyApp for client apps, Application Insights for web apps and services
+=========================================================================
+
+There are two separate performance monitoring offerings that meet the differing requirements of device and server apps:
+
+* [HockeyApp for device apps](https://hockeyapp.net/) helps you with app versioning and distribution as well as collecting user feedback, crash reports, and app telemetry. This is ideal for phone apps and Windows Store apps.
+* [Application Insights for web apps and services](https://azure.microsoft.com/documentation/articles/app-insights-overview/) monitors usage and performance and provides powerful performance diagnostic tools. In this demo, Application Insights is ideal both for the [web app in Azure app service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) and the [Azure mobile app service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service), which provides the back end for your mobile client apps.
+
 
 Create an Application Insights service in Azure
 ===============================================
