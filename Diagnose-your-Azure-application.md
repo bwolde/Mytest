@@ -92,230 +92,60 @@ There are two separate performance monitoring offerings that meet the differing 
 * [Application Insights for web apps and services](https://azure.microsoft.com/documentation/articles/app-insights-overview/) monitors usage and performance and provides powerful performance diagnostic tools. In this demo, Application Insights is ideal both for the [web app in Azure app service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) and the [Azure mobile app service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service), which provides the back end for your mobile client apps.
 
 
-Create an Application Insights service in Azure
-===============================================
+Add Application Insights to your web app
+========================================
 
-To save the results and statistics that are collected by the
-application, you must register an Application Insights service in Azure.
-In the Azure portal, go to the **Application Insights** option and add a
-new item by setting the necessary parameters. It’s important to select
-the type of target application.
+### Open your web app in Visual Studio. 
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image2.png)
+As a sample, you can use our demo app, which is an example of the web service component that supports a mobile client. 
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image3.png)
+1. Download and extract the code from: https://github.com/Microsoft/HealthClinic.biz
+2. Open 06_Demos_MobileApp.sln in Visual Studio. 
 
-After the service is created, open the resource from the Azure portal
-and get the **Instrumentation Key**. You must save this key to use in
-the next step.
+### Configure Application Insights 
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image4.png)
+In Solution Explorer, right-click the web app project.
 
-Add Application Insights to a Universal Windows project
-=======================================================
+* Select **Add Application Insights**; or
+* Choose **Application Insights > Configure Application Insights**.
+ * Under Register your app with Application Insights, click **Change**
+ * Sign in to Azure in this window if required.
+ * Click **Update resource**
 
-In order to focus the reader on the goal, which is to add Application
-Insights to a Universal Windows project, we prepared a basic project
-based on the demo that was presented at Microsoft Connect(); //2015.
-This means that you only need to apply the following instructions. You
-can download the project from the following link:
-[HealthDemo.UniversalWindows.Base](https://github.com/Microsoft/HealthClinic.biz/blob/master/10_Demos_Deployment.sln).
+This does two things:
 
-Because there is currently no support for adding Application Insights by
-using a wizard (as there usually is in projects with another target,
-like a web application or a Windows 8.1 application), you need to add
-Application Insights to the project manually.
+1. Sets up a new Application Insights resource in Azure, where your telemetry will be stored, analyzed and displayed.
+2. Adds the Application Insights SDK to your code, and configures it to send to the new resource. 
 
-To install Application Insights in the project
-**HealthDemo.UniversalWindows**, in Visual Studio, access the NuGet
-packages manager and install the references:
+### Publish the app to Azure. 
 
--   **Microsoft.ApplicationInsights**
+1. Use the Visual Studio 'publish' feature to upload and start the app.
+2. To get more comprehensive telemetry, link the app in Azure to its Application Insights resource:
+ 1. In the [Azure portal](https://portal.azure.com/) open your web app's control panel. 
+ 2. Choose **Tools > Performance monitoring > Click here > Application Insights** and then select the Application Insights resource.
 
--   **Microsoft.ApplicationInsights.PersistenceChannel** (Only install
-    this if you want to preserve the data when the application has no
-    connection in the device, and then upload data when there is
-    a connection.)
 
--   **Microsoft.ApplicationInsights.WindowsApps**
+### View app telemetry in Application Insights
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image5.png)
+Make some use of the app, so as to generate some telemetry.
 
-You must tell the application to use the platform. To do this, it is
-sufficient to indicate the App.xaml.cs class within the class
-constructor from Public App() {.
+In the [Azure portal](https://portal.azure.com/), open the Application Insights resource of your web app.
 
-Run the following code:
+Click through any of the charts that shows data, to get more detail.
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image6.png)
+Here are some more things you can do to analyze your data:
 
-In the root of the project, create a new file called
-**ApplicationInsights.config** by using the following code:
+* Open the [Search blade](https://azure.microsoft.com/documentation/articles/app-insights-diagnostic-search/) to find and inspect individual requests, or exceptions
+* Use [Metrics explorer](https://azure.microsoft.com/documentation/articles/app-insights-metrics-explorer/) to make customized charts of request counts, success rates, response times, dependency calls, and exceptions.
+* Go to [Analytics](https://azure.microsoft.com/documentation/articles/app-insights-analytics-tour/) to create powerful queries over your app's telemetry.
+* Create [Dashboards](https://azure.microsoft.com/documentation/articles/app-insights-dashboards/) showing the metric and analytics charts that are most important to you and your team.
 
-Replace *YOUR\_INSTRUMENTATION\_KEY* with the Instrumentation Key that
-you copied in the previous step. You must specify the properties of this
-file, which are the content type and what is to be copied, if necessary.
+Application Insights will send you alert emails:
 
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image7.png)
+* [Smart alerts](https://azure.microsoft.com/documentation/articles/app-insights-proactive-detection/) are automatically configured by Application Insights (after a few days of substantial traffic). They will email you to warn of unusual changes in your web app's failed response rate. 
+* [Alerts on metric thresholds](https://azure.microsoft.com/documentation/articles/app-insights-alerts/) can be set manually on metrics of your choice.
+* [Availability web tests](https://azure.microsoft.com/documentation/articles/app-insights-monitor-web-app-availability/) send test requests to your web app at frequent intervals from our points of presence around the world.
 
-At this point, you have configured Application Insights on your
-Universal Windows application.
-
-If the application doesn’t have [network permissions for external
-requests](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx),
-you must add them to the application manifest as a [required
-capacity](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
-
-After you run the application, test it, and use it, you can see how
-different results are recorded in the Azure portal:
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png)
-You can download the complete code from the following link:
-[HealthDemo.UniversalWindows](https://github.com/Microsoft/HealthClinic.biz/blob/master/05_Demos_NativeApps.sln).
-
-Add Application Insights to a Xamarin project
-=============================================
-
-By using a C\# shared codebase, you can use
-[Xamarin](https://www.xamarin.com/) tools to write native Android, iOS,
-and Windows apps with native user interfaces—and you can share code
-across multiple platforms.
-
-Because the demo project does not include Application Insights, you can
-use this project as a base project. It’s available in
-[GitHub](https://github.com/Microsoft/HealthClinic.biz).
-
-To add Application Insights to a Xamarin project, you need to download
-or clone the repository that is located in
-[GitHub](https://github.com/Microsoft/ApplicationInsights-Xamarin).
-
-It contains three folders—one with a demo project (DemoApp), one local
-NuGet package (NuGet), and one with the SDK source code
-(ApplicationInsightsXamarin). Extract the file to the location of your
-choice.
-
-There are several ways to include the SDK in a Xamarin project. We
-recommend using the NuGet package.
-
-1.  Right-click the project of the platform of your choice, and select
-    **Manage NuGet Packages**.
-
-2.  Click **Options** to view the list of available NuGet
-    package sources.
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image8.png)
-
-1.  Add the local repository of NuGet packages where you extracted the
-    Application Insights SDK for Xamarin:
-    **ApplicationInsightsXamarin/NuGet**.
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image9.png)
-
-1.  Indicate that you want to get packages from the local repository
-    that you just added. Make sure that you have selected **Include
-    prerelease**. Finally, select and add the package **Application
-    Insights SDK for Xamarin.Forms**.
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image10.png)
-
-1.  Repeat this process in each of the projects of the different
-    platforms where you want to add **Application Insights for
-    Xamarin.Forms**.
-
-2.  Now, you just have to add a few lines of code to the project to set
-    up Application Insights for use. Depending on the platform, you must
-    configure and start the Application Insights SDK for Xamarin in some
-    files:
-
-    -   Xamarin.Forms (Android and iOS): Application class (for example,
-        project\_name.cs in the shared project)
-
-    -   iOS only: AppDelegate.cs in your iOS project
-
-    -   Android only: Main activity of your Android project
-
-3.  Add *using* statements:
-
-> using AI.XamarinSDK.Abstractions;
-
-1.  Add the following lines of code in one of the following methods:
-
-    -   Xamarin.Forms (Android & iOS): *OnStart()*
-
-    -   iOS only: *FinishedLaunching()*
-
-    -   Android only: *OnStart()*
-
-> ApplicationInsights.Setup(“YOUR\_INSTRUMENTATION\_KEY”);
->
-> ApplicationInsights.Start();
->
-> **NOTE:** If you plan to support iOS, you currently need to make a
-> direct call to the iOS assembly so that it doesn't get stripped by the
-> linker. Add the following line right after the *Xamarin.Forms
-> init()-call* inside the *FinishedLaunching()* of your AppDelegate.cs.
->
-> > AI.XamarinSDK.iOS.Applicationinsights.Init();
-
-1.  Override *YOUR\_INSTRUMENTATION\_KEY* with the code Instrumentation
-    Key that you copied in the previous step.
-
-After you’ve done this, Application Insights will be installed in the
-project. The entire project is available from the following link:
-[HealthDemo.Xamarin](https://github.com/Microsoft/HealthClinic.biz/blob/master/04_Demos_NativeXamarinApps.sln)
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png)
-
-Add Application Insights to a Cordova project
-=============================================
-
-[Apache Cordova](https://cordova.apache.org/) enables software
-programmers to build applications for mobile devices using CSS3, HTML5,
-and JavaScript instead of relying on platform-specific APIs like those
-in Android, iOS, and Windows Phone. It enables CSS, HTML, and JavaScript
-code to be wrapped up, depending upon the platform of the device. It
-also extends the features of HTML and JavaScript to work with the
-device. The resulting applications are hybrid. This means that they are
-not truly native mobile applications (because all layout rendering is
-done via web views instead of the platform's native UI framework), and
-they are not purely web-based (because they are not just web apps—they
-are packaged as apps for distribution and have access to native device
-APIs).
-
-Because the demo project does not have Application Insights installed,
-this project can be used as a base project. It’s available in
-[GitHub](https://github.com/Microsoft/HealthClinic.biz).
-
-While you can add a Connected Service to a Cordova application,
-Application Insights is not currently supported as a service.
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image11.png)
-
-However, you can install Application Insights by using a plug-in.
-
-1.  Open the file config.xml, and go to the **Plug-ins** option.
-
-2.  Add the following URL as a Git repository:
-    <https://github.com/MSOpenTech/cordova-plugin-ms-appinsights>.
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image12.png)
-
-1.  A new Application Insights window appears with a field to enter the
-    **INSTRUMENTATION\_KEY** that you generated in previous steps
-    in Azure. Enter the key, and click **Add**.
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image13.png)
-
-After you’ve finished this, Application Insights will be installed on a
-Cordova project. You can test the application and see the statistics
-that are collected in the Azure portal. Note that Ripple might not be
-able to collect these metrics and might generate errors when you test
-the application.
-
-![](https://whitepapershealth.blob.core.windows.net/diagnose/image1.png)
-
-The complete code is available from the following link:
-[HealthDemo.Cordova](https://github.com/Microsoft/HealthClinic.biz/blob/master/03_Demos_Cordova.sln)
 
 Diagnose an application in Visual Studio
 ========================================
@@ -346,26 +176,37 @@ different types of saved events from this window.
 
 ![](https://whitepapershealth.blob.core.windows.net/diagnose/image17.png)
 
-Other suggested topics to explore
+HockeyApp for device apps
+=========================
+
+To monitor the client apps, use [HockeyApp](https://support.hockeyapp.net/kb).
+
+* [HockeyApp for iOS](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
+* [HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
+* [HockeyApp for Universal Windows apps](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
+* [HockeyApp and Xamarin](https://support.hockeyapp.net/kb/client-integration-cross-platform/how-to-integrate-hockeyapp-with-xamarin)
+* [HockeyApp and Cordova](https://support.hockeyapp.net/kb/client-integration-cross-platform/how-to-integrate-hockeyapp-with-phonegapcordova)
+
+
+### HockeyApp and Visual Studio
+
+For some types of app, you can right-click the project in Solution Explorer, and use HockeyApp tools:
+
+* **Enable crash reporting** - adds the HockeyApp SDK to the app, so that telemetry is sent back to HockeyApp
+* **Distribute with HockeyApp** - publish the app to HockeyApp so that you can supervise distribution to test and beta users, and collect feedback from them.
+
+To use these tools, make sure you have the latest update of Visual Studio, and the latest version of the Developer Analytics Tools extension. In **Tools** > **Extensions and updates**, open **Updates** and run any that are available.
+
+
+
+
+### Other suggested topics to explore
 =================================
 
--   [Analytics for
-    applications](https://azure.microsoft.com/documentation/articles/app-insights-windows-get-started/)
-    with information about Application Insights and the recommendation
-    of using HockeyApp in client-side projects
-
--   Information, tutorials, and news about the [installation of
-    Application Insights in Xamarin
-    applications](https://github.com/Microsoft/ApplicationInsights-Xamarin)
-
--   The [Application Insights SDK for Xamarin without Xamarin.Forms
-    dependency](https://github.com/Microsoft/ApplicationInsights-Xamarin/tree/feature/remove-xamarin-forms)
-
--   Information, tutorials, and news about the [installation of
-    Application Insights in Cordova
-    applications](https://github.com/MSOpenTech/cordova-plugin-ms-appinsights)
-
+-   [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-overview/)
+    overview 
 -   [Azure Developer Tools](http://azure.com/tools) for more information
     about the tools and for the recently released installers
+-   [HockeyApp](https://support.hockeyapp.net/kb)
 
 
