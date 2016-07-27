@@ -1,4 +1,4 @@
-# Diagnose your Azure mobile application
+# Nonitor performance and diagnose issues
 
 Overview
 ========
