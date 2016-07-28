@@ -1,4 +1,4 @@
-# Nonitor performance and diagnose issues
+# Monitor performance and diagnose issues
 
 Overview
 ========
