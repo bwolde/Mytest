@@ -138,9 +138,6 @@ Other suggested topics to explore
 -   An [introduction to SQL
     Database](https://azure.microsoft.com/en-us/documentation/articles/sql-database-technical-overview/)
 
--   An [open-source version of Azure Storage Explorer on
-    GitHub](https://github.com/Azure/deco/releases)
-
 -   [Azure Storage Explorer main page](http://storageexplorer.com/) for
     downloads for different platforms, as well as the change log of
     previous versions
